@@ -49,7 +49,7 @@ public class ConnexionActivity extends AppCompatActivity implements LoaderCallba
      * TODO: remove after connecting to a real authentication system.
      */
     private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world"
+            "JeanBob:hello", "John:world"
     };
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
@@ -82,7 +82,7 @@ public class ConnexionActivity extends AppCompatActivity implements LoaderCallba
             }
         });
 
-        Button mPseudoSignInButton = (Button) findViewById(R.id.pseudo_connexion_button);
+        Button mPseudoSignInButton = (Button) findViewById(R.id.pseudo_sign_in_button);
         mPseudoSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -92,6 +92,14 @@ public class ConnexionActivity extends AppCompatActivity implements LoaderCallba
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
+
+
+
+
+
+
+
     }
 
     private void populateAutoComplete() {
@@ -171,11 +179,12 @@ public class ConnexionActivity extends AppCompatActivity implements LoaderCallba
             mPseudoView.setError(getString(R.string.error_field_required));
             focusView = mPseudoView;
             cancel = true;
-        } else if (!isPseudoValid(pseudo)) {
+        } /*else if (!isPseudoValid(pseudo)) {
             mPseudoView.setError(getString(R.string.error_invalid_pseudo));
             focusView = mPseudoView;
             cancel = true;
-        }
+
+        }*/
 
         if (cancel) {
             // There was an error; don't attempt login and focus the first
@@ -190,10 +199,11 @@ public class ConnexionActivity extends AppCompatActivity implements LoaderCallba
         }
     }
 
-    private boolean isPseudoValid(String pseudo) {
+    /*private boolean isPseudoValid(String pseudo) {
         //TODO: Replace this with your own logic
         return pseudo.contains("@");
-    }
+
+    }*/
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
@@ -245,7 +255,8 @@ public class ConnexionActivity extends AppCompatActivity implements LoaderCallba
 
                 // Select only pseudo
                 ContactsContract.Contacts.Data.MIMETYPE +
-                        " = ?", new String[]{ContactsContract.CommonDataKinds.Nickname},
+                        " = ?", new String[]{ContactsContract.CommonDataKinds.Nickname.NAME},
+
 
                 // Show primary pseudo addresses first. Note that there won't be
                 // a primary pseudo address if the user hasn't specified one.
@@ -281,8 +292,7 @@ public class ConnexionActivity extends AppCompatActivity implements LoaderCallba
 
     private interface ProfileQuery {
         String[] PROJECTION = {
-                ContactsContract.CommonDataKinds.Pseudo.ADDRESS,
-                ContactsContract.CommonDataKinds.Pseudo.IS_PRIMARY,
+                ContactsContract.CommonDataKinds.Nickname.NAME
         };
 
         int ADDRESS = 0;
@@ -346,4 +356,3 @@ public class ConnexionActivity extends AppCompatActivity implements LoaderCallba
         }
     }
 }
-

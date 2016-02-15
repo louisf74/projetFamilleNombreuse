@@ -10,7 +10,6 @@
     <string name="error_invalid_mdp">Ce mot de passe est trop court</string>
     <string name="error_incorrect_mdp">Mot de passe incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
+    <string name="permission_rationale">"Contacts permissions are needed"
     </string>
 </resources>
