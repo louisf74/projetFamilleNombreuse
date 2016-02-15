@@ -1,0 +1,44 @@
+Client - Famille nombreuse
+
+Gestion horaire
+Semaine 7h30/18h
+
+Paramétrable :
+Week end 10-11h/
+
+Chauffage : seuil haut/bas
+
+Smartphone/Tablette
+Protégée accord parental
+
+Console -> Lumière Basse avec prise commandée
+Priorité lecture
+
+Lampe connectée + prise console
+	Si lampe 0, console 0 => Eteint
+	lampe 0, console 1 => tamisée
+	lampe 1 console X => Normal
+
+Lampe canapée prioritaire
+
+
+Peu de fils, peu de moyens
+
+Raspberry OK
+
+Pas de gros oeuvre
+
+-------------------------------------------------------------------------------------------------------------
+
+Requêtes accès prise
+
+http://192.168.140.192/core/appliances/c5496efe89ea483ea6171483f9115e3d/relay/
+<relay><state>on</state></relay>
+
+<header>
+content-type text/xml
+
+Basic Auth
+login : stretch
+passw : mwnghcck
+
